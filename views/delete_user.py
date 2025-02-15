@@ -2,7 +2,7 @@ from ._import_package import *
 from django.core.exceptions import ObjectDoesNotExist
 
 @api_view(['DELETE'])
-@authentication_classes([SessionAuthentication, TokenAuthentication])
+@authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def delete_user(request):
   """

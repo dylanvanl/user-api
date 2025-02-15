@@ -7,13 +7,15 @@ def send_confirmation_email(user:User, verification_token:EmailVerificationToken
   """
   Create email content and send.
   Assume that frontend link exists:
-  FRONT_END_URL/user/verified?idvalue=<uuid>
+  FRONT_END_URL + FRONT_END_CONFIRM + idvalue=<uuid>
   where the uuid is the verification token value.
   This token is used to activate the created user.
   """
   
   # http://localhost:3000/user/verified?idvalue=<uuid>
-  url_id = settings.FRONT_END_URL + '/user/verified?idvalue=' + str(verification_token.token)
+  url_id = (settings.FRONT_END_URL + 
+            settings.FRONT_END_CONFIRM_LINK +
+            '?idvalue=' + str(verification_token.token))
   
   context = {
     'username':user.username,

@@ -7,11 +7,13 @@ def send_password_reset_email(user:User, verification_token:EmailVerificationTok
   """
   Create email content and send.
   Assume that frontend link exists:
-  FRONT_END_URL/user/reset-succes?idvalue=<uuid>
+  FRONT_END_URL + FRONT_END_PASSWORD_RESET + ?idvalue=<uuid>
   where the uuid is the verification token value.
   This token is used to verify the password reset.
   """  
-  url_id = settings.FRONT_END_URL + '/user/reset-succes?idvalue=' + str(verification_token.token)
+  url_id = (settings.FRONT_END_URL + 
+            settings.FRONT_END_PASSWORD_RESET +
+            '?idvalue=' + str(verification_token.token))
   
   context = {
     'username':user.username,

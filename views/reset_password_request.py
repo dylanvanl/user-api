@@ -39,7 +39,7 @@ def reset_password_request(request):
       pass      
     
     if not user.is_active:
-      return Response({"detail":"User does not exist"}, status=404)
+      return Response({"detail":"User does not exist."}, status=404)
     else:
       password = User.objects.make_random_password(length=12, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!@#$%^&*')
       user.set_password(password)
@@ -49,4 +49,4 @@ def reset_password_request(request):
       send_password_reset_email(user, verification_token=verif_token)
     return Response({"detail":"Email has been send."}, status=200)
   except User.DoesNotExist:
-    return Response({"detail":"User does not exist"}, status=404)
+    return Response({"detail":"User does not exist."}, status=404)

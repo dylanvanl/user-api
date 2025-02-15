@@ -20,7 +20,7 @@ def signup(request):
       email: <email>
       
     Returns:
-      200 OK if succesfull
+      201 CREATED if succesfull
         detail: User created. Confirmation email sent.
         
       400 BAD REQUEST if password != password confirmation
@@ -63,4 +63,4 @@ def signup(request):
   
   token, created = EmailVerificationToken.objects.update_or_create(user=user)
   send_confirmation_email(user, token)
-  return Response({"detail":"User created. Confirmation email sent."})
+  return Response({"detail":"User created. Confirmation email sent."}, status=201)
