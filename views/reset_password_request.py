@@ -21,13 +21,13 @@ def reset_password_request(request):
       
     Returns:
       200 OK if succesfull
-        detail: Email has been send
+        detail: Email has been send.
         
       404 NOT FOUND if user has been deleted
-        detail: User does not exist
+        detail: User does not exist.
 
       404 NOT FOUND if user with <email> does not exist
-        detail: User does not exist
+        detail: User does not exist.
   """
   
   email = request.data.get('email')  

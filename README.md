@@ -397,7 +397,7 @@ curl -X POST "http://localhost:8000/api/reset-password/"
                 <li><p style="color: #00FF00">200 OK</p>
                     <pre><code>
 {
-    "detail": "Account activated succesfully."
+    "detail": "Email has been send."
 }
                     </code></pre>
                 </li>
